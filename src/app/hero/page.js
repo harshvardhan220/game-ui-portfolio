@@ -1,7 +1,9 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import "../globals.css";
 import { Big_Shoulders_Text, Iceberg, Iceland } from "next/font/google";
+import { rewards, beginning } from "../constants/constants.js";
+import { useRouter } from "next/navigation";
 
 const big_shoulders = Big_Shoulders_Text({ subsets: ["latin"] });
 const iceberg = Iceberg({ weight: "400", subsets: ["latin"] });
@@ -11,16 +13,9 @@ const iceland = Iceland({
 });
 
 const Hero = () => {
-  const rewards = [
-    {
-      src: "/assets/reward-1.png",
-      points: "+25",
-    },
-    {
-      src: "/assets/reward-2.png",
-      points: "+5",
-    },
-  ];
+  const [selected, setSelected] = useState(0);
+  const [coinsAwarded, setCoinsAwarded] = useState(1425);
+  const router = useRouter();
 
   return (
     <>
@@ -28,7 +23,7 @@ const Hero = () => {
         <div className=""></div>
       </div>
       {/* Header */}
-      <div className="flex  justify-between pt-[27px] pb-[16px] pl-[78px] pr-[78px] text-[#FFFFFF] w-full h-auto">
+      <div className="flex  justify-between pt-[27px] pb-[16px] pl-[75px] pr-[78px] text-[#FFFFFF] w-full h-auto">
         <div className="flex justify-center   gap-[46px] ">
           <div className="flex tracking-[0.075em]">
             <p
@@ -41,7 +36,12 @@ const Hero = () => {
             </p>
           </div>
           <div className="flex">
-            <div className=" flex justify-center items-center w-[33px] h-[33px] border border-[#FFFFFF]">
+            <div
+              onClick={() => {
+                setCoinsAwarded((coins) => coins + 1);
+              }}
+              className=" flex justify-center items-center w-[33px] h-[33px] border border-[#FFFFFF]"
+            >
               <svg
                 width="11"
                 height="11"
@@ -58,7 +58,9 @@ const Hero = () => {
             <div
               className={`flex justify-center items-baseline pl-[13px] gap-[6px] tracking-[0.075em] ${big_shoulders.className}`}
             >
-              <p className="text-[26px] text-[#7DFF68]">1,425 </p>
+              <p className="text-[26px] text-[#7DFF68]">
+                {coinsAwarded ?? "1,425"}
+              </p>
               <span className="text-[16px] opacity-80 ">COINS AWARDED</span>
             </div>
           </div>
@@ -97,7 +99,7 @@ const Hero = () => {
       </div>
 
       {/* Wrapper  */}
-      <div className="flex  pl-[78px] pr-[78px] tracking-[0.075em]">
+      <div className="flex pl-[75px] pr-[78px] tracking-[0.075em]">
         {/* Left Section  */}
         <div className="w-[194px] mr-[16px] relative h-auto  mb-[20px]  ">
           <div
@@ -222,7 +224,7 @@ const Hero = () => {
         </div>
         {/* Middle Section  */}
         <div className="middle-section flex justify-center relative w-auto h-auto mr-[16px] ">
-          <img src="/assets/whale.png" className="h-[85vh] w-[62vw]" alt="" />
+          <img src="/assets/whale.png" className="h-[77vh] w-[64vw]" alt="" />
           <p
             className={`absolute top-0  mt-[10px] text-white w-[623px] text-[18px] uppercase text-center  ${iceland.className}`}
           >
@@ -234,6 +236,42 @@ const Hero = () => {
           >
             Artwork generated with midjourney
           </p>
+          <div className="absolute bottom-4 flex gap-[60px]  left-auto  w-[815px]  h-[65px]">
+            {beginning?.map((el, id) => {
+              return (
+                <div
+                  onClick={(e) => {
+                    setSelected(id);
+                    router.push(`/${el?.title.toLowerCase()}`);
+                  }}
+                  key={id}
+                  className="cursor-pointer w-[151px] h-auto border flex flex-col  border-l-[#E84A4A] border-b-0 border-r-0 border-t-0 border-l-2"
+                >
+                  <p
+                    className={`subtract text-white relative z-20 uppercase ml-[8px] ${big_shoulders.className}`}
+                  >
+                    {el?.title ?? "Beginning"}
+                  </p>
+                  <img
+                    className={`absolute top-0 ${
+                      id === selected ? "animate-pulse" : ""
+                    }`}
+                    src={
+                      id === selected
+                        ? "/assets/subtract.png"
+                        : "/assets/subtract-black.png"
+                    }
+                    alt=""
+                  />
+                  <p
+                    className={`text-white ml-[8px] ${iceland.className} text-[11px]`}
+                  >
+                    Suscipit est consequatur nemo voluptatem est labore saepe.
+                  </p>
+                </div>
+              );
+            })}
+          </div>
           {/* Corner Borders  */}
           <div
             style={{
@@ -270,7 +308,7 @@ const Hero = () => {
               borderTop: "3px solid #E84A4A",
               left: "-2px",
               transform: "rotate(270deg)",
-              bottom: "-2px",
+              bottom: "58px",
             }}
           ></div>
           <div
@@ -283,7 +321,7 @@ const Hero = () => {
               borderTop: "3px solid #E84A4A",
               right: "-2px",
               transform: "rotate(180deg)",
-              bottom: "-2px",
+              bottom: "58px",
             }}
           ></div>
         </div>
@@ -337,7 +375,7 @@ const Hero = () => {
                 {rewards?.map((el, index) => {
                   return (
                     <div key={index} className="text-center cursor-pointer">
-                      <img className="w-[40px] h-[40px]" src={el?.src} alt="" />
+                      <img className="w-[40px] h-[40px] animate-pulse" src={el?.src} alt="" />
                       <span
                         className={`text-[#7A7A7A] text-[16px] ${iceland.className}`}
                       >
