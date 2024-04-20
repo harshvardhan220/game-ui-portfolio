@@ -1,7 +1,6 @@
-"use client"
+"use client";
 import { Big_Shoulders_Text, Iceland } from "next/font/google";
-import { useRouter } from 'next/navigation';
-
+import { useRouter } from "next/navigation";
 
 const big_shoulders = Big_Shoulders_Text({ subsets: ["latin"] });
 const iceland = Iceland({
@@ -11,7 +10,7 @@ const iceland = Iceland({
 export default function Home() {
   const router = useRouter();
   return (
-    <div className="flex xxs:flex-col xs:flex-col lg:flex-row sm:flex-col justify-center items-center lg:text-left sm:text-center bg-[#000003] h-[100vh] w-[100vw] lg:gap-[84px] sm:gap-[42px]">
+    <div className="flex  xxs:text-center xxs:flex-col xs:flex-col lg:flex-row sm:flex-col justify-center items-center lg:text-left sm:text-center bg-[#000003] h-[100vh] w-[100vw] lg:gap-[84px] sm:gap-[42px]">
       <div className="">
         <h1
           className={`lg:text-[350px] sm:text-[210px] xs:text-[100px] xxs:text-[90px] tracking-[-0.06em] font-big-shoulders font-extrabold text-[#E84A4A] ${big_shoulders.className} `}
@@ -21,7 +20,7 @@ export default function Home() {
       </div>
       <div className=" max-w-[623px] flex flex-wrap border border-[#000000]">
         <h1
-          className={`text-[26px] lg:ml-0 sm:ml-[20%] text-[#FFFFFF] uppercase ${iceland.className}`}
+          className={`text-[26px]  lg:ml-0 sm:ml-[20%] text-[#FFFFFF] uppercase ${iceland.className}`}
         >
           Welcome to My personal website.
         </h1>
@@ -37,9 +36,10 @@ export default function Home() {
           </span>
         </div>
         <div className={`text-white mt-[50px] ${big_shoulders.className}`}>
-          <button 
-           onClick={() => router.push('/hero')}
-           className="text-[22px] lg:ml-0 sm:ml-[75%] tracking-[0.075em] leading-[26px] uppercase w-[256px] h-[55px] text-[#E84A4A]">
+          <button
+            onClick={() => router.push("/hero")}
+            className="text-[22px] xxs:ml-[55px] xs:ml-[180px] lg:ml-0 sm:ml-[75%] tracking-[0.075em] leading-[26px] uppercase w-[256px] h-[55px] text-[#E84A4A]"
+          >
             Enter the System
           </button>
         </div>

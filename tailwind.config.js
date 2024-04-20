@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        xxs:'375px',
+        xxs: "355px",
         xs: "480px", // Extra small devices
         sm: "640px", // Small devices, like mobile (default)
         md: "768px", // Medium devices, like tablets
@@ -20,6 +20,7 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      "bottom-left-vector": "url('/public/assets/bottom-left.png')",
       fontFamily: {
         "big-shoulders": ["Big Shoulders Display"],
       },
