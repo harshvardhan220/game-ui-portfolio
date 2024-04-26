@@ -19,7 +19,7 @@ const RightSection = () => {
         <div className="absolute h-[389px] w-[2px] left-[-2px] bg-[#E84A4A] z-20"></div>
         <div className="flex]">
           <div className="flex items-center absolute">
-            <img src="/assets/subtract.png" className=" " alt="" />
+            <img src="assets/subtract.png" className=" " alt="" />
             <p
               className={`text-[#FFFFFF] text-[16px] pl-[8px] absolute tracking-[0.075em] font-bold uppercase ${big_shoulders.className}`}
             >

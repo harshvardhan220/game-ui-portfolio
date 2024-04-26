@@ -30,7 +30,7 @@ const Hero = () => {
         <LeftSection />
         {/* Middle Section  */}
         <div className="middle-section flex justify-center relative w-auto h-auto mr-[16px] ">
-          <img src="/assets/whale.png" className="h-[77vh] w-[64vw]" alt="" />
+          <img src="assets/whale.png" className="h-[77vh] w-[64vw]" alt="" />
           <p
             className={`absolute top-0  mt-[10px] text-white w-[623px] text-[18px] uppercase text-center  ${iceland.className}`}
           >
@@ -64,8 +64,8 @@ const Hero = () => {
                     }`}
                     src={
                       id === selected
-                        ? "/assets/subtract.png"
-                        : "/assets/subtract-black.png"
+                        ? "assets/subtract.png"
+                        : "assets/subtract-black.png"
                     }
                     alt=""
                   />

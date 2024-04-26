@@ -1,10 +1,10 @@
 export const rewards = [
   {
-    src: "/assets/reward-1.png",
+    src: "assets/reward-1.png",
     points: "+25",
   },
   {
-    src: "/assets/reward-2.png",
+    src: "assets/reward-2.png",
     points: "+5",
   },
 ];

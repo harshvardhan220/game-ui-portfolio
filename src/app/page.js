@@ -2,7 +2,7 @@
 import { Big_Shoulders_Text, Iceland } from "next/font/google";
 import { useRouter } from "next/navigation";
 
-const big_shoulders = Big_Shoulders_Text({ subsets: ["latin"] });
+const big_shoulders = Big_Shoulders_Text({ weight: "400", subsets: ["latin"] });
 const iceland = Iceland({
   weight: "400",
   subsets: ["latin"],
