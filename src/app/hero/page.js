@@ -20,20 +20,23 @@ const Hero = () => {
   const [coinsAwarded, setCoinsAwarded] = useState(1425);
   const router = useRouter();
 
-  const [width, setWidth] =useState(typeof window !== 'undefined' ? window.innerWidth : 0);
+
+  const [width, setWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 0
+  );
 
   useEffect(() => {
     const handleResize = () => {
       setWidth(window.innerWidth);
     };
 
-    if (typeof window !== 'undefined') {
-      window.addEventListener('resize', handleResize);
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", handleResize);
     }
 
     return () => {
-      if (typeof window !== 'undefined') {
-        window.removeEventListener('resize', handleResize);
+      if (typeof window !== "undefined") {
+        window.removeEventListener("resize", handleResize);
       }
     };
   }, []);
@@ -47,13 +50,15 @@ const Hero = () => {
           <div className="bg-[#000000] w-full h-screen">
             {/* Introduction */}
             <div className="pt-[24px] pl-[7px] pr-[8px]">
-              <h1 className={`text-white text-[18px] tracking-[0.075em] uppercase text-center ${iceland.className}`}>
+              <h1
+                className={`text-white text-[18px] tracking-[0.075em] uppercase text-center ${iceland.className}`}
+              >
                 swimming through a vast network of interconnected devices and
                 servers, spreading joy and whimsy to users across the globe
               </h1>
             </div>
             {/* whale image  */}
-            <div className="mt-[27px]">
+            <div className="mt-[27px] text-center p-[8px]">
               <img src="assets/whale-mobile.png" alt="" />
             </div>
           </div>

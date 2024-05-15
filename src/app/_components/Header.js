@@ -14,9 +14,10 @@ const iceland = Iceland({
 
 const Header = () => {
   const [coinsAwarded, setCoinsAwarded] = useState(1425);
-  const time = new Date();
-  let hours = time.getHours()
-  let minutes = time.getMinutes()
+ 
+  let hours = new Date().getHours() % 12;
+  let hours24 = new Date().getHours();
+  let minutes = new Date().getMinutes();
 
 
   return (
@@ -83,7 +84,7 @@ const Header = () => {
               <span
                 className={`text-[#FFFFFF] tracking-[0.075em] ${iceberg.className}`}
               >
-                &nbsp;{`${hours} : ${minutes}` }
+                &nbsp;{`${hours24} : ${minutes}` }
               </span>
             </ul>
             <ul
@@ -93,7 +94,7 @@ const Header = () => {
               <span
                 className={`text-[#FFFFFF] tracking-[0.075em] ${iceberg.className}`}
               >
-                &nbsp;15:42
+                &nbsp;{`${hours} : ${minutes}` }
               </span>
             </ul>
           </li>
