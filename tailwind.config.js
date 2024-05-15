@@ -14,6 +14,11 @@ module.exports = {
         md: "768px", // Medium devices, like tablets
         lg: "1024px", // Large devices, like laptops
         xl: "1280px",
+        'smartwatch': { 'raw': '((min-width: 320px) and (max-width: 480px))' },
+        'mobile': { 'raw': '((min-width: 481px) and (max-width: 767px)))' },
+        'tablet': { 'raw': '((min-width: 768px) and (max-width: 1023px))' },
+        'tabletToDesktop': { 'raw': '((min-width: 1024px) and (max-width: 1279px))' },
+        'desktop': { 'raw': '( (min-width: 1280px) and (max-width: 1439px))' },
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
