@@ -9,6 +9,8 @@ import LeftSection from "../_components/LeftSection.js";
 import RightSection from "../_components/RightSection.js";
 import Loader from "../_components/Loader.js";
 import Link from "next/link";
+import Image from 'next/image'
+
 
 const big_shoulders = Big_Shoulders_Text({ subsets: ["latin"] });
 const iceberg = Iceberg({ weight: "400", subsets: ["latin"] });
@@ -53,7 +55,7 @@ export default function Layout({ children }) {
           </div>
           {/* whale image  */}
           <div className="mt-[27px] text-center p-[8px]">
-            <img src="assets/whale-mobile.png" alt="" />
+            <Image src="/assets/whale-mobile.png" alt="" height={350} width={350} />
           </div>
         </div>
       )}
@@ -91,7 +93,7 @@ export default function Layout({ children }) {
                       >
                         {el?.title ?? "Beginning"}
                       </p>
-                      <img
+                      <Image
                         className={`absolute top-0 ${
                           id === selected ? "animate-pulse" : ""
                         }`}
@@ -102,6 +104,8 @@ export default function Layout({ children }) {
                           //   : "assets/subtract-black.png"
                         }
                         alt=""
+                        height={230}
+                        width={190}
                       />
                       <p
                         className={`text-white ml-[8px] ${iceland.className} text-[11px]`}

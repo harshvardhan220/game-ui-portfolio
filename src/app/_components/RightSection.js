@@ -4,6 +4,7 @@ import "../globals.css";
 import { Big_Shoulders_Text, Iceberg, Iceland } from "next/font/google";
 import { rewards, beginning } from "../constants/constants.js";
 import { useRouter } from "next/navigation";
+import Image from 'next/image'
 
 const big_shoulders = Big_Shoulders_Text({ subsets: ["latin"] });
 const iceberg = Iceberg({ weight: "400", subsets: ["latin"] });
@@ -19,7 +20,7 @@ const RightSection = () => {
         <div className="absolute h-[389px] w-[2px] left-[-2px] bg-[#E84A4A] z-20"></div>
         <div className="flex]">
           <div className="flex items-center absolute">
-            <img src="/assets/subtract.png" className=" " alt="" />
+            <Image src="/assets/subtract.png" className=" " width={230} height={100} alt="" />
             <p
               className={`text-[#FFFFFF] text-[16px] pl-[8px] absolute tracking-[0.075em] font-bold uppercase ${big_shoulders.className}`}
             >
@@ -64,8 +65,10 @@ const RightSection = () => {
               {rewards?.map((el, index) => {
                 return (
                   <div key={index} className="text-center cursor-pointer">
-                    <img
-                      className="w-[40px] h-[40px] animate-pulse"
+                    <Image
+                      className=" animate-pulse"
+                      width={40}
+                      height={40}
                       src={"/" + el?.src}
                       alt=""
                     />
