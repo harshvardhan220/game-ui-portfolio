@@ -20,7 +20,7 @@ export default function Home() {
       </div>
       <div className=" max-w-[623px] flex flex-wrap border border-[#000000]">
         <h1
-          className={`text-[26px]  lg:ml-0 sm:ml-[20%] text-[#FFFFFF] uppercase ${iceland.className}`}
+          className={`text-[26px] ml-auto mr-auto   sm:ml-[20%] text-[#FFFFFF] uppercase ${iceland.className}`}
         >
           Welcome to My personal website.
         </h1>

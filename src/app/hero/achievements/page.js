@@ -1,32 +1,10 @@
 "use client";
-import React, { useState } from "react";
-import { Big_Shoulders_Text, Iceberg, Iceland } from "next/font/google";
-import { rewards, beginning } from "../constants/constants.js";
-
-const big_shoulders = Big_Shoulders_Text({ subsets: ["latin"] });
-const iceberg = Iceberg({ weight: "400", subsets: ["latin"] });
-const iceland = Iceland({
-  weight: "400",
-  subsets: ["latin"],
-});
+import React from "react";
 
 const page = () => {
-
   return (
     <>
-      <img src="/assets/whale.png" className="h-[77vh] w-[64vw]" alt="" />
-      <p
-        className={`absolute top-0  mt-[10px] text-white max-w-[623px] text-[18px] uppercase text-center  ${iceland.className}`}
-      >
-        swimming through a vast network of interconnected devices and servers,
-        spreading joy and whimsy to users across the globe
-      </p>
-      <p
-        className={`absolute top-[30px]  mt-[29px] text-[#B2B7BA] max-w-[623px] text-[16px] uppercase text-center  ${iceland.className}`}
-      >
-        Artwork generated with midjourney
-      </p>
-
+      <div className="text-white">I am Achievements</div>
       {/* Corner Borders  */}
       <div
         style={{
@@ -63,7 +41,7 @@ const page = () => {
           borderTop: "3px solid #E84A4A",
           left: "-2px",
           transform: "rotate(270deg)",
-          bottom: "0px",
+          bottom: "58px",
         }}
       ></div>
       <div
@@ -76,7 +54,7 @@ const page = () => {
           borderTop: "3px solid #E84A4A",
           right: "-2px",
           transform: "rotate(180deg)",
-          bottom: "0px",
+          bottom: "58px",
         }}
       ></div>
     </>

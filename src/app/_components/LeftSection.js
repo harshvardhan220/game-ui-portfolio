@@ -19,7 +19,7 @@ const LeftSection = () => {
           className="w-[194px] h-[175px] flex justify-center items-center relative border mb-[20px] border-[#212121] 
           "
         >
-          <img src="assets/profile-img.png" alt="" />
+          <img src="/assets/profile-img.png" alt="" />
 
           {/* Corner Borders  */}
           <div
