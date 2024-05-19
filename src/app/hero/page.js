@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import { Big_Shoulders_Text, Iceberg, Iceland } from "next/font/google";
 import { rewards, beginning } from "../constants/constants.js";
+import Image from 'next/image'
+
 
 const big_shoulders = Big_Shoulders_Text({ subsets: ["latin"] });
 const iceberg = Iceberg({ weight: "400", subsets: ["latin"] });
@@ -14,7 +16,7 @@ const page = () => {
 
   return (
     <>
-      <img src="/assets/whale.png" className="h-[77vh] w-[64vw]" alt="" />
+      <Image src="/assets/whale.png" width={983} height={535} className="h-[77vh] w-[64vw]" alt="" />
       <p
         className={`absolute top-0  mt-[10px] text-white max-w-[623px] text-[18px] uppercase text-center  ${iceland.className}`}
       >

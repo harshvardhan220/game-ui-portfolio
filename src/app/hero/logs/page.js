@@ -85,7 +85,7 @@ const page = () => {
       <div className="mb-[127px] flex flex-col gap-5 text-left  ">
         {olderLogs?.map((el, i) => {
           return (
-            <div className=" w-full pr-[5px] bg-black border  border-[#E84A4A] flex justify-between items-center max-w-[953px] ml-auto mr-auto">
+            <div key={i} className=" w-full pr-[5px] bg-black border  border-[#E84A4A] flex justify-between items-center max-w-[953px] ml-auto mr-auto">
               <h1
                 className={`pl-2  text-[18px] text-[#E84A4A] uppercase font-black  ${iceland.className}`}
               >

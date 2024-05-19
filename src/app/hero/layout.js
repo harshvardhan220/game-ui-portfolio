@@ -80,12 +80,12 @@ export default function Layout({ children }) {
                         ? `/hero`
                         : `/hero/${el?.title.toLowerCase()}`
                     }
+                    key={el?.name}
                   >
                     <div
                       onClick={(e) => {
                         setSelected(id);
                       }}
-                      key={el?.name}
                       className="cursor-pointer w-[151px] h-auto border flex flex-col  border-l-[#E84A4A] border-b-0 border-r-0 border-t-0 border-l-2"
                     >
                       <p
