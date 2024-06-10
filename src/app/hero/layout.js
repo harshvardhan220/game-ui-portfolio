@@ -3,14 +3,13 @@ import React, { useEffect, useState } from "react";
 import "../globals.css";
 import { Big_Shoulders_Text, Iceberg, Iceland } from "next/font/google";
 import { rewards, beginning } from "../constants/constants.js";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Header from "../_components/Header.js";
 import LeftSection from "../_components/LeftSection.js";
 import RightSection from "../_components/RightSection.js";
 import Loader from "../_components/Loader.js";
 import Link from "next/link";
-import Image from 'next/image'
-
+import Image from "next/image";
 
 const big_shoulders = Big_Shoulders_Text({ subsets: ["latin"] });
 const iceberg = Iceberg({ weight: "400", subsets: ["latin"] });
@@ -20,6 +19,23 @@ export default function Layout({ children }) {
   const [selected, setSelected] = useState(0);
   const [width, setWidth] = useState(0);
   const [isClient, setIsClient] = useState(false);
+  const router = useRouter();
+  const pathName = usePathname();
+
+  useEffect(() => {
+    const savedSelected = localStorage.getItem("selected");
+    if (savedSelected) {
+      setSelected(parseInt(savedSelected, 10));
+      const selectedItem = beginning[parseInt(savedSelected, 10)];
+      if (selectedItem) {
+        const route =
+          selectedItem?.title === "BEGINNING"
+            ? "/hero"
+            : `/hero/${selectedItem?.title.toLowerCase()}`;
+        router.replace(route);
+      }
+    }
+  }, []);
 
   useEffect(() => {
     setIsClient(true);
@@ -55,7 +71,12 @@ export default function Layout({ children }) {
           </div>
           {/* whale image  */}
           <div className="mt-[27px] text-center p-[8px]">
-            <Image src="/assets/whale-mobile.png" alt="" height={350} width={350} />
+            <Image
+              src="/assets/whale-mobile.png"
+              alt=""
+              height={350}
+              width={350}
+            />
           </div>
         </div>
       )}
@@ -85,6 +106,7 @@ export default function Layout({ children }) {
                     <div
                       onClick={(e) => {
                         setSelected(id);
+                        localStorage.setItem("selected", id);
                       }}
                       className="cursor-pointer w-[151px] h-auto border flex flex-col  border-l-[#E84A4A] border-b-0 border-r-0 border-t-0 border-l-2"
                     >
@@ -126,3 +148,8 @@ export default function Layout({ children }) {
     </>
   );
 }
+
+// 1. Store the selected state in local storage.
+// 2. Retrieve the selected state on component mount to initialize it.
+// 3. Update both the state and the URL upon selection to ensure proper synchronization.
+// 4. This approach ensures the selected state and the route persist even after refreshing the page.
